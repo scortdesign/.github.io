@@ -480,7 +480,27 @@
 
 </div>
 
-  <p class="project-label">Three courses to get started</p>
+<!-- DUAL ENROLLMENT -->
+<section class="dual-section fade-in" id="dual-enrollment">
+  <div class="dual-inner">
+    <div class="course-header">
+      <div>
+        <p class="course-num">Dual enrollment</p>
+        <h2 class="course-title">Start college while you're in high school</h2>
+      </div>
+      <div class="course-desc">
+        <p><strong>Explore your creativity. Earn college credit. No enrollment fees.</strong></p>
+        <p>College of Marin offers dual enrollment opportunities for high school students interested in design, photography, digital media, marketing, and AI. No previous design experience is needed.</p>
+      </div>
+    </div>
+
+    <div class="project-group">
+      <div class="img-block band">
+        <img src="images/dual-enrollment.jpg" alt="High school students taking College of Marin design courses">
+      </div>
+    </div>
+
+    <p class="project-label">Three courses to get started</p>
     <div class="dual-grid">
       <div class="dual-card">
         <p class="dual-card-code">GDES 112</p>
@@ -500,3 +520,39 @@
         <p class="dual-card-desc">Explore AI as a creative tool for developing ideas, designing content, and solving problems.</p>
         <p class="dual-card-term">In Person Fall and Spring</p>
       </div>
+      </div>
+    </div>
+    <p class="dual-note">All three courses have no prerequisites and earn transferable college credit. Choose online asynchronous learning or in person classes at our Kentfield and Indian Valley campuses. Enrollment fees are waived for eligible students.</p>
+
+    <div class="dual-cta">
+      <p><strong>Interested?</strong> Talk to your high school counselor about dual enrollment opportunities at College of Marin.</p>
+      <a class="dual-btn" href="https://marin.edu/node/206" target="_blank" rel="noopener">How to enroll</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-logo">Graphic Design Program</p>
+  <p>College of Marin &nbsp;·&nbsp; Kentfield, California</p>
+  <p>All student work shown with permission.</p>
+</footer>
+
+
+<script>
+
+
+  // show a quiet placeholder if an image file has not been uploaded yet
+  document.querySelectorAll('img').forEach(img => {
+    const flag = () => img.classList.add('missing');
+    img.addEventListener('error', flag);
+    if (img.complete && img.naturalWidth === 0) flag();
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
