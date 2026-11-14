@@ -114,9 +114,9 @@
   .dual-card { background: var(--surface); border-top: 3px solid var(--accent-fill); border-radius: 3px; padding: 1.5rem 1.5rem 1.7rem; }
   .dual-card-code { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 0.55rem; }
   .dual-card h3 { font-family: var(--font-head); font-weight: var(--head-weight); letter-spacing: var(--head-track); font-size: 1.15rem; line-height: 1.2; color: var(--ink); margin-bottom: 0.6rem; }
- .dual-card { display: flex; flex-direction: column; }
-.dual-card-term { margin-top: auto; padding-top: 1rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.03em; color: var(--muted); }
-.dual-card-desc { font-size: 0.9rem; line-height: 1.65; color: var(--body); margin-bottom: 1rem; }
+  .dual-card { display: flex; flex-direction: column; }
+  .dual-card-term { margin-top: auto; padding-top: 1rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.03em; color: var(--muted); }
+  .dual-card-desc { font-size: 0.9rem; line-height: 1.65; color: var(--body); margin-bottom: 1rem; }
   .dual-note { margin-top: 1.5rem; font-size: 0.88rem; line-height: 1.7; color: var(--muted); max-width: 72ch; }
   .dual-cta { margin-top: 2.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; background: var(--panel); color: var(--on-panel); border-radius: 3px; padding: 1.6rem 2rem; }
   .dual-cta p { font-size: 1.05rem; line-height: 1.5; max-width: 54ch; }
@@ -134,7 +134,17 @@
   .fade-in.visible { opacity: 1; transform: none; }
 
 
-  @media (max-width: 1100px) { .nav-links { display: none; } }
+  .nav-toggle { display: none; background: none; border: 1px solid var(--ink); border-radius: 2px; color: var(--ink); font: inherit; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.5rem 0.85rem; cursor: pointer; }
+  .nav-toggle:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+  html { scroll-padding-top: 3.5rem; }
+  @media (max-width: 1100px) {
+    .nav-toggle { display: inline-block; }
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 0.25rem 1.5rem 0.75rem; max-height: calc(100vh - 4rem); overflow-y: auto; }
+    .nav-links.open { display: flex; }
+    .nav-links li { border-bottom: 1px solid var(--rule); }
+    .nav-links li:last-child { border-bottom: none; }
+    .nav-links a { display: block; padding: 0.95rem 0; font-size: 0.78rem; }
+  }
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .hero { padding: 7rem 1.5rem 4rem; }
@@ -163,7 +173,8 @@
 
 <nav>
   <a href="#" class="nav-logo">College of Marin Graphic Design</a>
-  <ul class="nav-links">
+  <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#gdes112">GDES 112</a></li>
     <li><a href="#gdes115">GDES 115</a></li>
     <li><a href="#mmst111">MMST 111</a></li>
@@ -209,7 +220,7 @@
       </tr>
       <tr>
         <td>13101</td>
-        <td class="course-name-cell">GDES 122: Graphic Design II <span class="ztc-badge">ZTC</span></td>
+        <td class="course-name-cell">GDES 122: Graphic Design 2 <span class="ztc-badge">ZTC</span></td>
         <td>M / W</td><td>1:40 PM to 4:00 PM</td><td>Indian Valley</td>
       </tr>
       <tr>
@@ -238,7 +249,7 @@
     </div>
     <div class="schedule-card">
       <p class="schedule-card-crn">CRN 13101</p>
-      <p class="schedule-card-course">GDES 122: Graphic Design II <span class="ztc-badge">ZTC</span></p>
+      <p class="schedule-card-course">GDES 122: Graphic Design 2 <span class="ztc-badge">ZTC</span></p>
       <p class="schedule-card-meta">M / W &nbsp;·&nbsp; 1:40 PM to 4:00 PM &nbsp;·&nbsp; Indian Valley</p>
     </div>
     <div class="schedule-card">
@@ -329,7 +340,7 @@
       <div class="img-block medium">
         <img src="images/gdes112-instagram-campaign.jpg" alt="Instagram ad campaign for Rare Beauty cosmetics">
       </div>
-      <p class="project-caption"><strong>Instagram Ad Campaign.</strong> A multi-format campaign built to real social media specs, from carousel ads to urban poster mockups.</p>
+      <p class="project-caption"><strong>Instagram Ad Campaign.</strong> Students build a multi-format campaign to real social media specs, from carousel ads to urban poster mockups.</p>
     </div>
   </section>
 
@@ -342,8 +353,8 @@
         <p class="course-prereq">No prerequisites &nbsp;·&nbsp; CSU transferable</p>
       </div>
       <div class="course-desc">
-        <p>Introduces the principles and workflows used to create visual systems for digital environments. Students apply typography, color, hierarchy, grids, spacing, components, responsive design, and interface design principles while developing projects for contemporary digital platforms.</p>
-        <p>Emphasis is placed on translating graphic design fundamentals into consistent, flexible, and user-centered digital design systems.</p>
+        <p>This is where you learn to design for screens. You'll build visual systems for digital platforms using typography, color, hierarchy, grids, spacing, components, and responsive design, with interface design principles guiding every project.</p>
+        <p>The focus is on turning design fundamentals into consistent, flexible systems that put the user first.</p>
       </div>
     </div>
     <p class="project-label">Student Work</p>
@@ -356,13 +367,13 @@
           <img src="images/MMST111_2.jpg" alt="MMST 111 student project 2">
         </div>
       </div>
-      <p class="project-caption"><strong>Weather App UI Design.</strong> Students design a custom mobile weather app in Figma, using research, visual hierarchy, typography, and reusable components to create a cohesive digital experience. The project explores how creative direction and UI/UX principles work together to make information both functional and visually engaging.</p>
+      <p class="project-caption"><strong>Weather App UI Design.</strong> Students design a mobile weather app in Figma, using research, visual hierarchy, typography, and reusable components to make information functional and visually engaging.</p>
     </div>
     <div class="project-group">
       <div class="img-block medium">
         <img src="images/MMST111_3.jpg" alt="MMST 111 student project 3">
       </div>
-      <p class="project-caption"><strong>Brand Drop Campaign.</strong> Students concept a fictional product launch or brand collaboration, developing the creative strategy, AI campaign imagery, and a complete digital design system in Figma. This student project imagines a Salomon x Spotify collaboration, bringing music and movement together through a custom product launch and two connected ecommerce web pages.</p>
+      <p class="project-caption"><strong>Brand Drop Campaign.</strong> Students launch a fictional product or brand collaboration with AI campaign imagery and a Figma design system. This one imagines a Salomon x Spotify drop with two connected ecommerce pages.</p>
     </div>
   </section>
 
@@ -375,8 +386,8 @@
         <p class="course-prereq">Prereq: GDES 112 or 115 &nbsp;·&nbsp; UC &amp; CSU transferable</p>
       </div>
       <div class="course-desc">
-        <p>Introduces the principles and workflows for using generative AI as a creative collaborator in graphic design practice. Students develop original concepts, direct AI tools through intentional prompting, and evaluate and refine results while maintaining creative control and a clear point of view.</p>
-        <p>Emphasis is placed on creative direction, critical judgment, and ethical practice, using AI to support the creative process from concept development through professionally presented design solutions.</p>
+        <p>Learn how to use generative AI as a creative collaborator without giving up your point of view. You'll develop original concepts, direct AI tools through intentional prompting, and evaluate and refine the results while keeping creative control.</p>
+        <p>The focus is on creative direction, critical judgment, and ethical practice, taking you from concept development through professionally presented design solutions.</p>
       </div>
     </div>
     <p class="project-label">Student Work</p>
@@ -384,7 +395,7 @@
       <div class="img-block medium">
         <img src="images/gdes120-melt-club-lineup.jpg" alt="Melt Club ice cream brand, four flavor lineup packaging">
       </div>
-      <p class="project-caption"><strong>Brand Identity System.</strong> Full brand development from logo and character design through a complete product line, built with Figma and AI-assisted concepting.</p>
+      <p class="project-caption"><strong>Brand Identity System.</strong> Students develop a full brand, from logo and character design through a complete product line, using Figma and AI-assisted concepting.</p>
     </div>
     <div class="project-group">
       <div class="img-block medium">
@@ -456,7 +467,7 @@
           <img src="images/gdes132-cookbook-interior.jpg" alt="The Student Cookbook interior spread design">
         </div>
       </div>
-      <p class="project-caption"><strong>Editorial Layout.</strong> Cover and interior spread design applying typography across multiple page formats and content hierarchies.</p>
+      <p class="project-caption"><strong>Editorial Layout.</strong> Students design a book cover and interior spreads, applying typography across multiple page formats and content hierarchies.</p>
     </div>
   </section>
 
@@ -465,12 +476,12 @@
     <div class="course-header">
       <div>
         <p class="course-num">GDES 200</p>
-        <h2 class="course-title">Portfolio</h2>
+        <h2 class="course-title">Graphic Design Portfolio</h2>
         <p class="course-prereq">Prereq: GDES 122 &nbsp;·&nbsp; UC &amp; CSU transferable</p>
       </div>
       <div class="course-desc">
         <p>This class is about you as a designer. GDES 200 focuses on preparing you for what comes next. Whether your goal is getting a job, transferring to a four-year program, or building a freelance practice, this course helps you position your work and present yourself with clarity and confidence.</p>
-        <p>This class is less about learning new tools and more about refining how you think, present, and communicate as a designer.</p>
+        <p>It is less about learning new tools and more about refining how you think, present, and communicate as a designer.</p>
       </div>
     </div>
     <p class="project-label">Student Work</p>
@@ -523,7 +534,7 @@
         <p class="dual-card-term">In Person Fall and Spring</p>
       </div>
     </div>
-    <p class="dual-note">All three courses have no prerequisites and earn transferable college credit. Choose online asynchronous learning or in person classes at our Kentfield and Indian Valley campuses. Enrollment fees are waived for eligible students. </p>
+    <p class="dual-note">All three courses have no prerequisites and earn transferable college credit. Choose online asynchronous learning or in person classes at our Kentfield and Indian Valley campuses. Enrollment fees are waived for eligible students.</p>
 
     <div class="dual-cta">
       <p><strong>Interested?</strong> Talk to your high school counselor about dual enrollment opportunities at College of Marin.</p>
@@ -540,7 +551,16 @@
 
 
 <script>
-
+  // mobile menu
+  const navToggle = document.getElementById('navToggle'), navLinks = document.getElementById('navLinks');
+  function setMenu(open) {
+    navLinks.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.textContent = open ? 'Close' : 'Menu';
+  }
+  navToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
   // show a quiet placeholder if an image file has not been uploaded yet
   document.querySelectorAll('img').forEach(img => {
