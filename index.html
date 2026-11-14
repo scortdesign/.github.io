@@ -3,93 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Graphic Design Program — College of Marin</title>
+<title>Graphic Design Program, College of Marin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ===== COLORS AND TYPE ===== */
   :root {
-    --black: #111010; --white: #F5F2EC; --ink: #1a1917;
-    --accent: #C8390A; --muted: #7a7570; --rule: #d8d4cc;
-    --card-bg: #EEEAE2;
-    --serif: 'DM Serif Display', Georgia, serif;
-    --sans: 'DM Sans', system-ui, sans-serif;
+    --bg: #F2F3F4; --surface: #E3E5E8; --ink: #1F1E26; --body: #2E2D35; --muted: #4A4952; --rule: #D5D7DB;
+    --accent-text: #087A2D; --accent-fill: #03C03C; --on-accent: #1F1E26;
+    --panel: #1F1E26; --on-panel: #F2F3F4; --on-panel-accent: #03C03C; --panel-rule: rgba(255,255,255,0.14);
+    --em-color: #029A2D; --mark: transparent;
+    --font-head: 'Montserrat', system-ui, sans-serif; --font-body: 'Montserrat', system-ui, sans-serif;
+    --head-weight: 700; --head-track: -0.03em; --root-size: 15.5px;
   }
-  html { scroll-behavior: smooth; }
-  body { background: var(--white); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.6; overflow-x: hidden; }
 
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; background: var(--white); border-bottom: 1px solid var(--rule); }
-  .nav-logo { font-family: var(--serif); font-size: 1.05rem; color: var(--ink); text-decoration: none; }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--accent); }
+  html { scroll-behavior: smooth; font-size: var(--root-size); }
+  body {
+    background: var(--bg); color: var(--body); font-family: var(--font-body);
+    font-weight: 400; line-height: 1.6; overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
 
-  .hero { padding: 11rem 3rem 6rem; max-width: 1200px; margin: 0 auto; }
-  .hero-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
-  .hero h1 { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5.5rem); line-height: 1.05; color: var(--ink); max-width: 16ch; margin-bottom: 2rem; }
-  .hero h1 em { font-style: italic; color: var(--accent); }
-  .hero-sub { font-size: 1.05rem; color: #3a3835; max-width: 58ch; line-height: 1.8; margin-bottom: 5rem; }
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 3rem; background: var(--bg); border-bottom: 1px solid var(--rule);
+    transition: background-color 0.25s ease;
+  }
+  .nav-logo { font-family: var(--font-head); font-weight: var(--head-weight); letter-spacing: var(--head-track); font-size: 1rem; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .nav-links { display: flex; gap: 1.35rem; list-style: none; }
+  .nav-links a { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; white-space: nowrap; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent-text); }
 
+  /* HERO */
+  .hero { padding: 11rem 3rem 5.5rem; max-width: 1200px; margin: 0 auto; }
+  .hero-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 1.5rem; }
+  .hero h1 { font-family: var(--font-head); font-weight: var(--head-weight); letter-spacing: var(--head-track); font-size: clamp(2.5rem, 6.2vw, 5.2rem); line-height: 1.04; color: var(--ink); max-width: 15ch; margin-bottom: 2rem; }
+  .hero h1 em {
+    font-style: normal; color: var(--em-color); padding: 0 0.06em;
+    background: linear-gradient(transparent 58%, var(--mark) 58%);
+    -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  }
+  .hero-sub { font-size: 1.05rem; color: var(--body); max-width: 60ch; line-height: 1.75; margin-bottom: 4.5rem; }
+
+  /* SCHEDULE */
   .schedule-section { max-width: 1200px; margin: 0 auto; padding: 0 3rem 5rem; }
-  .section-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
-  .schedule-title { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--ink); margin-bottom: 2rem; }
+  .section-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 1.25rem; }
+  .schedule-title { font-family: var(--font-head); font-weight: var(--head-weight); letter-spacing: var(--head-track); font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--ink); margin-bottom: 2rem; }
   .schedule-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-  .schedule-table thead th { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 0 1rem 0.9rem 0; border-bottom: 1px solid var(--rule); }
+  .schedule-table thead th { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 0 1rem 0.9rem 0; border-bottom: 2px solid var(--ink); }
   .schedule-table tbody tr { border-bottom: 1px solid var(--rule); }
   .schedule-table tbody tr:last-child { border-bottom: none; }
-  .schedule-table td { padding: 1rem 1rem 1rem 0; color: var(--ink); vertical-align: top; }
-  .schedule-table td:first-child { font-size: 0.78rem; font-weight: 500; color: var(--muted); white-space: nowrap; }
-  .course-name-cell { font-weight: 500; }
-  .ztc-badge { display: inline-block; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); border-radius: 2px; padding: 0.1em 0.4em; margin-left: 0.5rem; vertical-align: middle; }
+  .schedule-table td { padding: 1.05rem 1rem 1.05rem 0; color: var(--ink); vertical-align: top; }
+  .schedule-table td:first-child { font-size: 0.78rem; font-weight: 600; color: var(--muted); white-space: nowrap; }
+  .course-name-cell { font-weight: 600; }
+  .ztc-badge { display: inline-block; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--on-accent); background: var(--accent-fill); border-radius: 2px; padding: 0.15em 0.45em; margin-left: 0.5rem; vertical-align: middle; }
+  .online-badge { display: inline-block; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--muted); border-radius: 2px; padding: 0.1em 0.45em; margin-left: 0.5rem; vertical-align: middle; }
   .schedule-note { margin-top: 1rem; font-size: 0.78rem; color: var(--muted); }
   .schedule-cards { display: none; }
-  .schedule-card { border-bottom: 1px solid var(--rule); padding: 1.25rem 0; }
+  .schedule-card { border-bottom: 1px solid var(--rule); padding: 1.2rem 0; }
   .schedule-card:last-child { border-bottom: none; }
-  .schedule-card-course { font-weight: 500; font-size: 0.95rem; margin-bottom: 0.35rem; color: var(--ink); }
+  .schedule-card-course { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.35rem; color: var(--ink); }
   .schedule-card-meta { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
-  .schedule-card-crn { font-size: 0.72rem; color: var(--accent); font-weight: 500; margin-bottom: 0.2rem; }
+  .schedule-card-crn { font-size: 0.72rem; color: var(--accent-text); font-weight: 600; margin-bottom: 0.2rem; }
 
-  .quotes-section { background: var(--black); padding: 6rem 0 0; overflow: hidden; }
+  /* QUOTES */
+  .quotes-section { background: var(--panel); padding: 6rem 0 0; overflow: hidden; transition: background-color 0.25s ease; }
   .quotes-inner { max-width: 1200px; margin: 0 auto; padding: 0 3rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
-  .quote-block blockquote { font-family: var(--serif); font-style: italic; font-size: clamp(1.2rem, 2vw, 1.6rem); line-height: 1.4; color: var(--white); margin-bottom: 1rem; }
-  .quote-block cite { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-style: normal; }
-
+  .quote-block blockquote { font-family: var(--font-head); font-weight: 500; letter-spacing: -0.015em; font-size: clamp(1.2rem, 2.1vw, 1.65rem); line-height: 1.32; color: var(--on-panel); margin-bottom: 1.1rem; }
+  .quote-block cite { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--on-panel-accent); font-style: normal; }
   .student-strip { width: 100%; display: block; height: auto; }
-  .strip-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.1); }
+  .strip-divider { width: 100%; height: 1px; background: var(--panel-rule); }
   .full-width-img { width: 100%; display: block; height: auto; border-radius: 3px; }
 
+  /* COURSES */
   .courses { max-width: 1200px; margin: 0 auto; padding: 0 3rem 6rem; }
   .course-section { padding: 6rem 0; border-bottom: 1px solid var(--rule); }
   .course-section:last-child { border-bottom: none; }
   .course-header { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; margin-bottom: 3.5rem; align-items: start; }
-  .course-num { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
-  .course-title { font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.1; color: var(--ink); margin-bottom: 1rem; }
-  .course-prereq { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-  .course-desc { font-size: 1rem; line-height: 1.8; color: #3a3835; }
+  .course-num { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 0.6rem; }
+  .course-title { font-family: var(--font-head); font-weight: var(--head-weight); letter-spacing: var(--head-track); font-size: clamp(1.7rem, 3.2vw, 2.6rem); line-height: 1.1; color: var(--ink); margin-bottom: 1rem; }
+  .course-prereq { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .course-desc { font-size: 1rem; line-height: 1.8; color: var(--body); }
   .course-desc p + p { margin-top: 1em; }
   .project-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
   .project-group { margin-bottom: 3rem; }
   .project-group:last-child { margin-bottom: 0; }
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .img-block { background: var(--card-bg); overflow: hidden; border-radius: 3px; }
+  .img-block { background: var(--surface); overflow: hidden; border-radius: 3px; transition: background-color 0.25s ease; }
   .img-block img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
   .img-block:hover img { transform: scale(1.03); }
   .img-block.tall { min-height: 400px; }
   .img-block.medium { min-height: 300px; }
-  .project-caption { margin-top: 0.75rem; font-size: 0.8rem; color: var(--muted); }
-  .project-caption strong { color: var(--ink); font-weight: 500; }
+  img.missing { color: transparent; background: var(--surface); }
+  .project-caption { margin-top: 0.8rem; font-size: 0.8rem; color: var(--muted); }
+  .project-caption strong { color: var(--ink); font-weight: 600; }
 
-  footer { background: var(--black); color: var(--white); padding: 4rem 3rem; text-align: center; }
-  .footer-logo { font-family: var(--serif); font-size: 1.8rem; margin-bottom: 0.75rem; }
-  footer p { font-size: 0.82rem; color: rgba(245,242,236,0.45); margin-top: 0.4rem; }
+  /* DUAL ENROLLMENT */
+  .dual-section { max-width: 1200px; margin: 0 auto; padding: 0 3rem 6rem; }
+  .dual-inner { border-top: 2px solid var(--ink); padding-top: 4.5rem; }
+  .course-desc strong { font-weight: 600; color: var(--ink); }
+  .img-block.band { aspect-ratio: 3 / 1; min-height: 0; position: relative; }
+  .img-block.band img { position: relative; z-index: 1; }
+  .img-block.band img.missing { visibility: hidden; }
+  .dual-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .dual-card { background: var(--surface); border-top: 3px solid var(--accent-fill); border-radius: 3px; padding: 1.5rem 1.5rem 1.7rem; }
+  .dual-card-code { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 0.55rem; }
+  .dual-card h3 { font-family: var(--font-head); font-weight: var(--head-weight); letter-spacing: var(--head-track); font-size: 1.15rem; line-height: 1.2; color: var(--ink); margin-bottom: 0.6rem; }
+  .dual-card-desc { font-size: 0.9rem; line-height: 1.65; color: var(--body); }
+  .dual-note { margin-top: 1.5rem; font-size: 0.88rem; line-height: 1.7; color: var(--muted); max-width: 72ch; }
+  .dual-cta { margin-top: 2.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; background: var(--panel); color: var(--on-panel); border-radius: 3px; padding: 1.6rem 2rem; }
+  .dual-cta p { font-size: 1.05rem; line-height: 1.5; max-width: 54ch; }
+  .dual-cta strong { color: var(--on-panel-accent); font-weight: 700; }
+  .dual-btn { display: inline-block; background: var(--accent-fill); color: var(--on-accent); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.85rem 1.4rem; border-radius: 2px; text-decoration: none; white-space: nowrap; }
+  .dual-btn:hover { filter: brightness(1.1); }
+  .dual-btn:focus-visible { outline: 2px solid var(--on-panel-accent); outline-offset: 3px; }
+
+  /* FOOTER */
+  footer { background: var(--panel); color: var(--on-panel); padding: 4rem 3rem; text-align: center; transition: background-color 0.25s ease; }
+  .footer-logo { font-family: var(--font-head); font-weight: var(--head-weight); letter-spacing: var(--head-track); font-size: 1.7rem; margin-bottom: 0.75rem; }
+  footer p { font-size: 0.82rem; color: var(--on-panel); opacity: 0.6; margin-top: 0.4rem; }
 
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
   .fade-in.visible { opacity: 1; transform: none; }
 
+
+  @media (max-width: 1100px) { .nav-links { display: none; } }
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
     .hero { padding: 7rem 1.5rem 4rem; }
     .hero-sub { font-size: 0.95rem; margin-bottom: 3rem; }
     .schedule-section { padding: 0 1.5rem 4rem; }
@@ -101,31 +146,43 @@
     .grid-2 { grid-template-columns: 1fr; }
     .img-block.tall { min-height: 260px; }
     .img-block.medium { min-height: 220px; }
+    footer { padding: 4rem 1.5rem; }
+    .dual-section { padding: 0 1.5rem 4rem; }
+    .dual-inner { padding-top: 3rem; }
+    .dual-grid { grid-template-columns: 1fr; }
+    .img-block.band { aspect-ratio: 2 / 1; }
+    .dual-cta { padding: 1.4rem; }
+    .dual-btn { width: 100%; text-align: center; }
   }
 </style>
 </head>
 <body>
 
+
 <nav>
-  <a href="#" class="nav-logo">Graphic Design — College of Marin</a>
+  <a href="#" class="nav-logo">College of Marin Graphic Design</a>
   <ul class="nav-links">
     <li><a href="#gdes112">GDES 112</a></li>
     <li><a href="#gdes115">GDES 115</a></li>
-    <li><a href="#gdes120">MMST 111</a></li>
+    <li><a href="#mmst111">MMST 111</a></li>
+    <li><a href="#gdes120">GDES 120</a></li>
     <li><a href="#gdes122">GDES 122</a></li>
     <li><a href="#gdes132">GDES 132</a></li>
+    <li><a href="#gdes200">GDES 200</a></li>
+    <li><a href="#dual-enrollment">Dual Enrollment</a></li>
   </ul>
 </nav>
 
 <section class="hero fade-in">
   <p class="hero-eyebrow">College of Marin</p>
   <h1>Design That Works in the <em>Real World</em></h1>
-  <p class="hero-sub">Our graphic design courses teach the tools, thinking, and professional skills you need to build a portfolio and launch a career. Every project is grounded in real design briefs, industry software, and creative problem-solving — including how to use AI so your skills stay sharp and relevant as the industry changes.</p>
+  <p class="hero-sub">Our graphic design courses teach the tools, thinking, and professional skills you need to build a portfolio and launch a career. Every project is grounded in real design briefs, industry software, and creative problem-solving, including how to use AI so your skills stay sharp and relevant as the industry changes.</p>
 </section>
 
 <section class="schedule-section fade-in">
   <p class="section-label">Enrollment</p>
   <h2 class="schedule-title">Spring 2027 Course Schedule</h2>
+
   <table class="schedule-table">
     <thead>
       <tr>
@@ -134,55 +191,62 @@
     </thead>
     <tbody>
       <tr>
+        <td>10721</td>
+        <td class="course-name-cell">MMST 111: Digital Design Systems (Multimedia Production)</td>
+        <td>M / W</td><td>9:40 AM to 12:00 PM</td><td>Indian Valley</td>
+      </tr>
+      <tr>
         <td>13096</td>
-        <td class="course-name-cell">GDES 112 — Graphic Design I <span class="ztc-badge">ZTC</span></td>
-        <td>—</td><td>ONLINE</td><td>Asynchronous</td>
+        <td class="course-name-cell">GDES 112: Graphic Design 1 <span class="ztc-badge">ZTC</span> <span class="online-badge">Online</span></td>
+        <td colspan="3" style="color: var(--muted); font-size: 0.85rem;">Asynchronous, no set meeting days or times</td>
       </tr>
       <tr>
         <td>13094</td>
-        <td class="course-name-cell">GDES 115 — Photoshop for Design <span class="ztc-badge">ZTC</span></td>
-        <td>Tu / Th</td><td>9:40 AM – 12:00 PM</td><td>Kentfield</td>
-      </tr>
-      <tr>
-        <td>10721</td>
-        <td class="course-name-cell">MMST 111 — Digital Design &amp; AI Tools (Multimedia Production)</td>
-        <td>M / W</td><td>9:40 AM – 12:00 PM</td><td>Indian Valley</td>
+        <td class="course-name-cell">GDES 115: Photoshop for Design <span class="ztc-badge">ZTC</span></td>
+        <td>Tu / Th</td><td>9:40 AM to 12:00 PM</td><td>Kentfield</td>
       </tr>
       <tr>
         <td>13101</td>
-        <td class="course-name-cell">GDES 122 — Graphic Design II <span class="ztc-badge">ZTC</span></td>
-        <td>M / W</td><td>1:40 PM – 4:00 PM</td><td>Indian Valley</td>
-      </tr> 
+        <td class="course-name-cell">GDES 122: Graphic Design II <span class="ztc-badge">ZTC</span></td>
+        <td>M / W</td><td>1:40 PM to 4:00 PM</td><td>Indian Valley</td>
+      </tr>
       <tr>
         <td>13097</td>
-        <td class="course-name-cell">GDES 200 — Graphic Design Portfolio <span class="ztc-badge">ZTC</span></td>
-        <td>M / W</td><td>4:10 PM – 6:30 PM</td><td>HYBRID ONLINE Indian Valley</td>
+        <td class="course-name-cell">GDES 200: Graphic Design Portfolio <span class="online-badge">Hybrid</span></td>
+        <td>Online</td><td>4:10 PM to 6:30 PM</td><td>Indian Valley</td>
       </tr>
     </tbody>
   </table>
+
   <div class="schedule-cards">
     <div class="schedule-card">
-      <p class="schedule-card-crn">CRN 83473</p>
-      <p class="schedule-card-course">GDES 112 — Graphic Design I <span class="ztc-badge">ZTC</span></p>
-      <p class="schedule-card-meta">Tu / Th &nbsp;·&nbsp; 6:10 PM – 8:30 PM &nbsp;·&nbsp; Kentfield</p>
+      <p class="schedule-card-crn">CRN 10721</p>
+      <p class="schedule-card-course">MMST 111: Digital Design Systems (Multimedia Production)</p>
+      <p class="schedule-card-meta">M / W &nbsp;·&nbsp; 9:40 AM to 12:00 PM &nbsp;·&nbsp; Indian Valley</p>
     </div>
     <div class="schedule-card">
-      <p class="schedule-card-crn">CRN 83365</p>
-      <p class="schedule-card-course">GDES 115 — Photoshop for Design <span class="ztc-badge">ZTC</span></p>
-      <p class="schedule-card-meta">Tu / Th &nbsp;·&nbsp; 1:10 PM – 3:30 PM &nbsp;·&nbsp; Indian Valley</p>
+      <p class="schedule-card-crn">CRN 13096</p>
+      <p class="schedule-card-course">GDES 112: Graphic Design 1 <span class="ztc-badge">ZTC</span></p>
+      <p class="schedule-card-meta">Online Asynchronous</p>
     </div>
     <div class="schedule-card">
-      <p class="schedule-card-crn">CRN 83367</p>
-      <p class="schedule-card-course">GDES 120 — Digital Design &amp; AI Tools</p>
-      <p class="schedule-card-meta">M / W &nbsp;·&nbsp; 2:10 PM – 4:00 PM &nbsp;·&nbsp; Indian Valley</p>
+      <p class="schedule-card-crn">CRN 13094</p>
+      <p class="schedule-card-course">GDES 115: Photoshop for Design <span class="ztc-badge">ZTC</span></p>
+      <p class="schedule-card-meta">Tu / Th &nbsp;·&nbsp; 9:40 AM to 12:00 PM &nbsp;·&nbsp; Kentfield</p>
     </div>
     <div class="schedule-card">
-      <p class="schedule-card-crn">CRN 83369</p>
-      <p class="schedule-card-course">GDES 132 — Typography <span class="ztc-badge">ZTC</span></p>
-      <p class="schedule-card-meta">M / W &nbsp;·&nbsp; 9:40 AM – 12:00 PM &nbsp;·&nbsp; Indian Valley</p>
+      <p class="schedule-card-crn">CRN 13101</p>
+      <p class="schedule-card-course">GDES 122: Graphic Design II <span class="ztc-badge">ZTC</span></p>
+      <p class="schedule-card-meta">M / W &nbsp;·&nbsp; 1:40 PM to 4:00 PM &nbsp;·&nbsp; Indian Valley</p>
+    </div>
+    <div class="schedule-card">
+      <p class="schedule-card-crn">CRN 13097</p>
+      <p class="schedule-card-course">GDES 200: Graphic Design Portfolio <span class="online-badge">Hybrid</span></p>
+      <p class="schedule-card-meta">Online &nbsp;·&nbsp; 4:10 PM to 6:30 PM &nbsp;·&nbsp; Indian Valley</p>
     </div>
   </div>
-  <p class="schedule-note">ZTC = Zero Textbook Cost. All courses are 3 credit units and UC / CSU transferable.</p>
+
+  <p class="schedule-note">ZTC = Zero Textbook Cost. All courses are 3 credit units. GDES courses are UC and CSU transferable.</p>
 </section>
 
 <section class="quotes-section fade-in">
@@ -203,11 +267,12 @@
 
 <div class="courses">
 
+  <!-- GDES 112 -->
   <section class="course-section fade-in" id="gdes112">
     <div class="course-header">
       <div>
         <p class="course-num">GDES 112</p>
-        <h2 class="course-title">Graphic Design I </h2>
+        <h2 class="course-title">Graphic Design 1</h2>
         <p class="course-prereq">No prerequisites &nbsp;·&nbsp; UC &amp; CSU transferable</p>
       </div>
       <div class="course-desc">
@@ -217,7 +282,7 @@
     </div>
     <p class="project-label">Student Work</p>
     <div class="project-group">
-      <img src="images/gdes112-netflix-mockup.jpg" alt="Netflix show card design — Stars Night, screen and outdoor mockup" class="full-width-img">
+      <img src="images/gdes112-netflix-mockup.jpg" alt="Netflix show card design for Stars Night, screen and outdoor mockup" class="full-width-img">
       <p class="project-caption"><strong>Netflix Show Card.</strong> Students design a typographic title card for a fictional series, combining custom type treatments with cinematic imagery across screen and out-of-home formats.</p>
     </div>
     <div class="project-group">
@@ -233,6 +298,7 @@
     </div>
   </section>
 
+  <!-- GDES 115 -->
   <section class="course-section fade-in" id="gdes115">
     <div class="course-header">
       <div>
@@ -252,7 +318,7 @@
           <img src="images/gdes115-rare-beauty-outdoor.jpg" alt="Rare Beauty outdoor retail display mockup">
         </div>
         <div class="img-block tall">
-          <img src="images/gdes115-spotify-wrapped.jpg" alt="Spotify Wrapped mobile mockup — Taylor Swift">
+          <img src="images/gdes115-spotify-wrapped.jpg" alt="Spotify Wrapped mobile mockup">
         </div>
       </div>
       <p class="project-caption"><strong>Spotify Wrapped Campaign.</strong> Students build a full visual identity system for a Spotify Wrapped edition, exploring type, color, and illustration across multiple platforms.</p>
@@ -265,12 +331,46 @@
     </div>
   </section>
 
-  <section class="course-section fade-in" id="gdes120">
+  <!-- MMST 111 -->
+  <section class="course-section fade-in" id="mmst111">
     <div class="course-header">
       <div>
         <p class="course-num">MMST 111</p>
-        <h2 class="course-title">Digital Design &amp; AI (Multimedia Production)</h2>
+        <h2 class="course-title">Digital Design Systems (Multimedia Production)</h2>
         <p class="course-prereq">No prerequisites &nbsp;·&nbsp; CSU transferable</p>
+      </div>
+      <div class="course-desc">
+        <p>Introduces the principles and workflows used to create visual systems for digital environments. Students apply typography, color, hierarchy, grids, spacing, components, responsive design, and interface design principles while developing projects for contemporary digital platforms.</p>
+        <p>Emphasis is placed on translating graphic design fundamentals into consistent, flexible, and user-centered digital design systems.</p>
+      </div>
+    </div>
+    <p class="project-label">Student Work</p>
+    <div class="project-group">
+      <div class="grid-2">
+        <div class="img-block tall">
+          <img src="images/MMST111_1.jpg" alt="MMST 111 student project 1">
+        </div>
+        <div class="img-block tall">
+          <img src="images/MMST111_2.jpg" alt="MMST 111 student project 2">
+        </div>
+      </div>
+      <p class="project-caption"><strong>Project Name Placeholder.</strong> Description here of student work to come soon.</p>
+    </div>
+    <div class="project-group">
+      <div class="img-block medium">
+        <img src="images/MMST111_3.jpg" alt="MMST 111 student project 3">
+      </div>
+      <p class="project-caption"><strong>Project Name Placeholder.</strong> Description here of student work to come soon.</p>
+    </div>
+  </section>
+
+  <!-- GDES 120 -->
+  <section class="course-section fade-in" id="gdes120">
+    <div class="course-header">
+      <div>
+        <p class="course-num">GDES 120</p>
+        <h2 class="course-title">AI For Designers</h2>
+        <p class="course-prereq">Prereq: GDES 112 or 115 &nbsp;·&nbsp; UC &amp; CSU transferable</p>
       </div>
       <div class="course-desc">
         <p>Design today means knowing how to move fast without sacrificing quality. This course teaches modern design workflows in Figma, including components, grids, and reusable systems built for social, web, and presentation contexts.</p>
@@ -280,18 +380,19 @@
     <p class="project-label">Student Work</p>
     <div class="project-group">
       <div class="img-block medium">
-        <img src="images/gdes120-melt-club-lineup.jpg" alt="Melt Club ice cream brand — four flavor lineup packaging">
+        <img src="images/gdes120-melt-club-lineup.jpg" alt="Melt Club ice cream brand, four flavor lineup packaging">
       </div>
       <p class="project-caption"><strong>Brand Identity System.</strong> Full brand development from logo and character design through a complete product line, built with Figma and AI-assisted concepting.</p>
     </div>
     <div class="project-group">
       <div class="img-block medium">
-        <img src="images/gdes120-nekoki-brand.jpg" alt="Nekoki Soft Rage — brand strategy and product visual">
+        <img src="images/gdes120-nekoki-brand.jpg" alt="Nekoki Soft Rage, brand strategy and product visual">
       </div>
       <p class="project-caption"><strong>Brand Strategy Presentation.</strong> Students develop a brand concept from positioning statement through visual identity, then present it as a professional case study.</p>
     </div>
   </section>
 
+  <!-- GDES 122 -->
   <section class="course-section fade-in" id="gdes122">
     <div class="course-header">
       <div>
@@ -318,12 +419,13 @@
     </div>
     <div class="project-group">
       <div class="img-block medium">
-        <img src="images/gdes122-deyoung-ad.jpg" alt="De Yougn Museum Exhibit brand strategy and visual branding">
+        <img src="images/gdes122-de-young-exhibit.jpg" alt="De Young Museum exhibit design, visual identity and campaign">
       </div>
       <p class="project-caption"><strong>De Young Museum Exhibit Design.</strong> Students create a culturally inspired visual identity and campaign for a museum exhibition, building a cohesive design system of type, color, and imagery, then applying it across signage, marketing, and merchandise to demonstrate range and scalability.</p>
     </div>
   </section>
 
+  <!-- GDES 132 -->
   <section class="course-section fade-in" id="gdes132">
     <div class="course-header">
       <div>
@@ -356,7 +458,85 @@
     </div>
   </section>
 
+  <!-- GDES 200 -->
+  <section class="course-section fade-in" id="gdes200">
+    <div class="course-header">
+      <div>
+        <p class="course-num">GDES 200</p>
+        <h2 class="course-title">Portfolio</h2>
+        <p class="course-prereq">Prereq: GDES 122 &nbsp;·&nbsp; UC &amp; CSU transferable</p>
+      </div>
+      <div class="course-desc">
+        <p>This class is about you as a designer. GDES 200 focuses on preparing you for what comes next. Whether your goal is getting a job, transferring to a four-year program, or building a freelance practice, this course helps you position your work and present yourself with clarity and confidence.</p>
+        <p>This class is less about learning new tools and more about refining how you think, present, and communicate as a designer.</p>
+      </div>
+    </div>
+    <p class="project-label">Student Work</p>
+    <div class="project-group">
+      <img src="images/GDES200_1.jpg" alt="GDES 200 student portfolio project" class="full-width-img">
+      <p class="project-caption"><strong>Project Name Placeholder.</strong> Description here of student work to come soon.</p>
+    </div>
+    <div class="project-group">
+      <div class="grid-2">
+        <div class="img-block medium">
+          <img src="images/GDES200_2.jpg" alt="GDES 200 student portfolio project 2">
+        </div>
+        <div class="img-block medium">
+          <img src="images/GDES200_3.jpg" alt="GDES 200 student portfolio project 3">
+        </div>
+      </div>
+      <p class="project-caption"><strong>Project Name Placeholder.</strong> Description here of student work to come soon.</p>
+    </div>
+  </section>
+
 </div>
+
+<!-- DUAL ENROLLMENT -->
+<section class="dual-section fade-in" id="dual-enrollment">
+  <div class="dual-inner">
+    <div class="course-header">
+      <div>
+        <p class="course-num">Dual enrollment</p>
+        <h2 class="course-title">Start college while you're in high school</h2>
+      </div>
+      <div class="course-desc">
+        <p><strong>Explore your creativity. Earn college credit. No enrollment fees.</strong></p>
+        <p>College of Marin offers dual enrollment opportunities for high school students interested in design, photography, digital media, marketing, and AI. No previous design experience is needed.</p>
+      </div>
+    </div>
+
+    <div class="project-group">
+      <div class="img-block band">
+        <img src="images/dual-enrollment.jpg" alt="High school students taking College of Marin design courses">
+      </div>
+    </div>
+
+    <p class="project-label">Three courses to get started</p>
+    <div class="dual-grid">
+      <div class="dual-card">
+        <p class="dual-card-code">GDES 112</p>
+        <h3>Graphic Design 1</h3>
+        <p class="dual-card-desc">Explore visual communication, branding, advertising, and creative problem-solving.</p>
+      </div>
+      <div class="dual-card">
+        <p class="dual-card-code">GDES 115</p>
+        <h3>Photoshop for Design</h3>
+        <p class="dual-card-desc">Learn digital image editing, photography, and creative content production.</p>
+      </div>
+      <div class="dual-card">
+        <p class="dual-card-code">MMST 111</p>
+        <h3>Digital Design Systems</h3>
+        <p class="dual-card-desc">Explore AI as a creative tool for developing ideas, designing content, and solving problems.</p>
+      </div>
+    </div>
+    <p class="dual-note">All three courses have no prerequisites and earn transferable college credit. Choose online asynchronous learning or in person classes at our Kentfield and Indian Valley campuses. Enrollment fees are waived for eligible students. Textbooks and course materials are not included, and GDES 112 and GDES 115 are zero textbook cost.</p>
+
+    <div class="dual-cta">
+      <p><strong>Interested?</strong> Talk to your high school counselor about dual enrollment opportunities at College of Marin.</p>
+      <a class="dual-btn" href="https://marin.edu/node/206" target="_blank" rel="noopener">How to enroll</a>
+    </div>
+  </div>
+</section>
 
 <footer>
   <p class="footer-logo">Graphic Design Program</p>
@@ -364,11 +544,19 @@
   <p>All student work shown with permission.</p>
 </footer>
 
+
 <script>
+
+
+  // show a quiet placeholder if an image file has not been uploaded yet
+  document.querySelectorAll('img').forEach(img => {
+    const flag = () => img.classList.add('missing');
+    img.addEventListener('error', flag);
+    if (img.complete && img.naturalWidth === 0) flag();
+  });
+
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-    });
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.08 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
