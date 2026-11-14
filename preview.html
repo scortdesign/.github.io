@@ -28,7 +28,7 @@
     --bg: #F2F3F4; --surface: #E3E5E8; --ink: #1F1E26; --body: #2E2D35; --muted: #4A4952; --rule: #D5D7DB;
     --accent-text: #087A2D; --accent-fill: #03C03C; --on-accent: #1F1E26;
     --panel: #1F1E26; --on-panel: #F2F3F4; --on-panel-accent: #03C03C; --panel-rule: rgba(255,255,255,0.14);
-    --em-color: #1F1E26; --mark: #A2D43D;
+    --em-color: #029A2D; --mark: transparent;
   }
 
   /* ===== TYPE PAIRINGS ===== */
@@ -128,6 +128,27 @@
   .project-caption { margin-top: 0.8rem; font-size: 0.8rem; color: var(--muted); }
   .project-caption strong { color: var(--ink); font-weight: 600; }
 
+  /* DUAL ENROLLMENT */
+  .dual-section { max-width: 1200px; margin: 0 auto; padding: 0 3rem 6rem; }
+  .dual-inner { border-top: 2px solid var(--ink); padding-top: 4.5rem; }
+  .course-desc strong { font-weight: 600; color: var(--ink); }
+  .img-block.band { aspect-ratio: 3 / 1; min-height: 0; position: relative; }
+  .img-block.band::before { content: "Photo placeholder, 2400 x 800 px"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  .img-block.band img { position: relative; z-index: 1; }
+  .img-block.band img.missing { visibility: hidden; }
+  .dual-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .dual-card { background: var(--surface); border-top: 3px solid var(--accent-fill); border-radius: 3px; padding: 1.5rem 1.5rem 1.7rem; }
+  .dual-card-code { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 0.55rem; }
+  .dual-card h3 { font-family: var(--font-head); font-weight: var(--head-weight); letter-spacing: var(--head-track); font-size: 1.15rem; line-height: 1.2; color: var(--ink); margin-bottom: 0.6rem; }
+  .dual-card-desc { font-size: 0.9rem; line-height: 1.65; color: var(--body); }
+  .dual-note { margin-top: 1.5rem; font-size: 0.88rem; line-height: 1.7; color: var(--muted); max-width: 72ch; }
+  .dual-cta { margin-top: 2.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; background: var(--panel); color: var(--on-panel); border-radius: 3px; padding: 1.6rem 2rem; }
+  .dual-cta p { font-size: 1.05rem; line-height: 1.5; max-width: 54ch; }
+  .dual-cta strong { color: var(--on-panel-accent); font-weight: 700; }
+  .dual-btn { display: inline-block; background: var(--accent-fill); color: var(--on-accent); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.85rem 1.4rem; border-radius: 2px; text-decoration: none; white-space: nowrap; }
+  .dual-btn:hover { filter: brightness(1.1); }
+  .dual-btn:focus-visible { outline: 2px solid var(--on-panel-accent); outline-offset: 3px; }
+
   /* FOOTER */
   footer { background: var(--panel); color: var(--on-panel); padding: 4rem 3rem 8rem; text-align: center; transition: background-color 0.25s ease; }
   .footer-logo { font-family: var(--font-head); font-weight: var(--head-weight); letter-spacing: var(--head-track); font-size: 1.7rem; margin-bottom: 0.75rem; }
@@ -153,7 +174,7 @@
   .dp-toggle { padding: 3px 10px !important; font-size: 11px; }
   .dp.is-collapsed .dp-body { display: none; }
 
-  @media (max-width: 1000px) { .nav-links { display: none; } }
+  @media (max-width: 1100px) { .nav-links { display: none; } }
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .hero { padding: 7rem 1.5rem 4rem; }
@@ -168,6 +189,12 @@
     .img-block.tall { min-height: 260px; }
     .img-block.medium { min-height: 220px; }
     footer { padding: 4rem 1.5rem 9rem; }
+    .dual-section { padding: 0 1.5rem 4rem; }
+    .dual-inner { padding-top: 3rem; }
+    .dual-grid { grid-template-columns: 1fr; }
+    .img-block.band { aspect-ratio: 2 / 1; }
+    .dual-cta { padding: 1.4rem; }
+    .dual-btn { width: 100%; text-align: center; }
   }
 </style>
 </head>
@@ -184,6 +211,7 @@
     <li><a href="#gdes122">GDES 122</a></li>
     <li><a href="#gdes132">GDES 132</a></li>
     <li><a href="#gdes200">GDES 200</a></li>
+    <li><a href="#dual-enrollment">Dual Enrollment</a></li>
   </ul>
 </nav>
 
@@ -499,6 +527,53 @@
 
 </div>
 
+<!-- DUAL ENROLLMENT -->
+<section class="dual-section fade-in" id="dual-enrollment">
+  <div class="dual-inner">
+    <div class="course-header">
+      <div>
+        <p class="course-num">Dual enrollment</p>
+        <h2 class="course-title">Start college while you're in high school</h2>
+      </div>
+      <div class="course-desc">
+        <p><strong>Explore your creativity. Earn college credit. No enrollment fees.</strong></p>
+        <p>College of Marin offers dual enrollment opportunities for high school students interested in design, photography, digital media, marketing, and AI. No previous design experience is needed.</p>
+      </div>
+    </div>
+
+    <div class="project-group">
+      <div class="img-block band">
+        <img src="images/dual-enrollment.jpg" alt="High school students taking College of Marin design courses">
+      </div>
+    </div>
+
+    <p class="project-label">Three courses to get started</p>
+    <div class="dual-grid">
+      <div class="dual-card">
+        <p class="dual-card-code">GDES 112</p>
+        <h3>Graphic Design Foundations</h3>
+        <p class="dual-card-desc">Explore visual communication, branding, advertising, and creative problem-solving.</p>
+      </div>
+      <div class="dual-card">
+        <p class="dual-card-code">GDES 115</p>
+        <h3>Photoshop for Design</h3>
+        <p class="dual-card-desc">Learn digital image editing, photography, and creative content production.</p>
+      </div>
+      <div class="dual-card">
+        <p class="dual-card-code">MMST 111</p>
+        <h3>Digital Design &amp; AI</h3>
+        <p class="dual-card-desc">Explore AI as a creative tool for developing ideas, designing content, and solving problems.</p>
+      </div>
+    </div>
+    <p class="dual-note">All three courses have no prerequisites and earn transferable college credit. Choose online asynchronous learning or in person classes at our Kentfield and Indian Valley campuses. Enrollment fees are waived for eligible students. Textbooks and course materials are not included, and GDES 112 and GDES 115 are zero textbook cost.</p>
+
+    <div class="dual-cta">
+      <p><strong>Interested?</strong> Talk to your high school counselor about dual enrollment opportunities at College of Marin.</p>
+      <a class="dual-btn" href="https://marin.edu/node/206" target="_blank" rel="noopener">How to enroll</a>
+    </div>
+  </div>
+</section>
+
 <footer>
   <p class="footer-logo">Graphic Design Program</p>
   <p>College of Marin &nbsp;·&nbsp; Kentfield, California</p>
@@ -523,7 +598,7 @@
   const THEMES = [
     { id: 'gallery', name: 'Gallery', dots: ['#F7F6F2', '#2F4BFF', '#0E0E10'], note: 'Background #F7F6F2, accent cobalt #2F4BFF, dark panel #0E0E10' },
     { id: 'warm', name: 'Warm Modern', dots: ['#FBF8F3', '#1F6B4F', '#16241E'], note: 'Background #FBF8F3, accent forest #1F6B4F, dark panel #16241E' },
-    { id: 'green', name: 'Bright Green', dots: ['#F2F3F4', '#03C03C', '#1F1E26'], note: 'Your palette: background #F2F3F4, green #03C03C, lime #A2D43D, near black #1F1E26' }
+    { id: 'green', name: 'Bright Green', dots: ['#F2F3F4', '#03C03C', '#1F1E26'], note: 'Your palette: background #F2F3F4, green #03C03C, near black #1F1E26. Headline green #029A2D' }
   ];
   const TYPES = [
     { id: 'montserrat', name: 'Montserrat', family: "'Montserrat'", note: 'Montserrat for headlines and text' },
